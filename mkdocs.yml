@@ -1,0 +1,50 @@
+site_name: scikit-jax
+theme:
+  name: material
+  font:
+    text: kanit
+  logo: assets/scikit_jax_logo.png
+  palette:
+  # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  extra:
+    social:
+      - type: github
+        icon: assets/github-brands-solid.svg
+        link: https://github.com/LiibanMo
+      - type: linkedin
+        link: https://www.linkedin.com/in/lmohamud12/
+
+nav:
+  - Home: "index.md"
+  - API:
+    - skjax.clustering: 
+      - KMeans: "api/k_means.md"
+    - skjax.decomposition:
+      - PCA: "api/pca.md"
+    - skjax.linear_model:
+      - LinearRegression: "api/linear_regression.md"
+    - skjax.naive_bayes:
+      - MultinomialNaiveBayes: "api/multinomial_naive_bayes.md"
+      - GaussianNaiveBayes: "api/gaussian_naive_bayes.md"
+    
