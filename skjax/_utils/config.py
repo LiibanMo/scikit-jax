@@ -2,9 +2,9 @@
 EPOCHS_lr: int = 2000
 LEARNING_RATE: float = 5e-3
 P: int = 2
-LAMBDA_: float = 0.
+LAMBDA_: float = 0.0
 MAX_PATIENCE_lr: int = 200
-DROPOUT: float = 0.
+DROPOUT: float = 0.0
 RANDOM_STATE_lr: int = 41
 
 # K-MEANS

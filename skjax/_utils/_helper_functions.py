@@ -121,7 +121,7 @@ def kmeans_plus_initialization(key: jax.Array, num_clusters: int, X: jax.Array):
             subkey, indices_of_available_centroids, p=probabilities, replace=False
         )
         init_centroids.append(X[index_of_centroid_chosen])
-        indices_of_available_centroids = np.delete(
+        indices_of_available_centroids = jnp.delete(
             indices_of_available_centroids, index_of_centroid_chosen
         )
         index += 1
