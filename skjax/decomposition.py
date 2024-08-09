@@ -31,7 +31,9 @@ class PCA:
     def fit(self, X: jax.Array):
         n, m = X.shape
 
-        self.mean = X.mean(axis=0)
+        if self.mean is None:
+            self.mean = X.mean(axis=0)
+
         X_centred = X - self.mean
         S, self.principal_components = svd(X_centred, full_matrices=True)[1:]
 
@@ -45,7 +47,10 @@ class PCA:
         return jnp.dot(X_centred, self.principal_components[: self.num_components].T)
 
     def fit_transform(self, X: jax.Array):
-        X_centred = X - X.mean(axis=0)
+        if self.mean is None:
+            self.mean = X.mean(axis=0)
+            
+        X_centred = X - self.mean
 
         self.principal_components = svd(X_centred, full_matrices=True)[2]
 
