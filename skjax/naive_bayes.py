@@ -33,7 +33,7 @@ class MultinomialNaiveBayes:
 
     """
 
-    def __init__(self, alpha: Optional[int] = ALPHA_mnb):
+    def __init__(self, alpha: int = ALPHA_mnb):
         """
         Initializes the MultinomialNaiveBayes classifier.
 
@@ -73,7 +73,7 @@ class MultinomialNaiveBayes:
         Returns:
             jax.Array: An array of predicted class labels for each sample in X.
         """
-        return jnp.argmax(compute_posteriors(X, self.priors, self.likelihoods))
+        return jnp.argmax(compute_posteriors(X, self.priors, self.likelihoods), axis=1)
 
 
 # ------------------------------------------------------------------------------------------ #
