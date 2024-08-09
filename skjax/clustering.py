@@ -1,3 +1,5 @@
+from typing import Optional
+
 import jax
 import jax.numpy as jnp
 
@@ -15,7 +17,7 @@ class KMeans:
         num_clusters: int,
         epochs: int = EPOCHS_k,
         init: str = "random",
-        max_patience: int = MAX_PATIENCE_k,
+        max_patience: Optional[int] = MAX_PATIENCE_k,
         seed: int = RANDOM_STATE_k,
     ):
         """
@@ -28,14 +30,14 @@ class KMeans:
             max_patience (int, optional): The maximum number of epochs to wait for improvement before stopping early. Default is 5.
             seed (int, optional): Random seed for reproducibility. Default is 12.
         """
-        self.num_clusters = num_clusters
-        self.epochs = epochs
-        self.max_patience = max_patience
-        self.init = init
-        self.seed = seed
+        self.num_clusters: int = num_clusters
+        self.epochs: int = epochs
+        self.max_patience: Optional[int] = max_patience
+        self.init: str = init
+        self.seed: int = seed
         self.centroids = None
 
-    def fit(self, X: jax.Array):
+    def fit(self, X: jax.Array) -> None:
         """
         Compute the KMeans clustering.
 
@@ -66,39 +68,3 @@ class KMeans:
             if self.max_patience is not None and patience >= self.max_patience:
                 print(f"Terminated at epoch:{epoch}")
                 break
-
-        return self
-
-    def predict(self, X: jax.Array):
-        """
-        Predict the closest cluster for each data point.
-
-        Args:
-            X (jax.Array): Input data, where each row is a data point.
-
-        Returns:
-            jax.Array: An array of cluster indices (one for each data point).
-        """
-        distances_between_centroids_and_points = (
-            calculating_distances_between_centroids_and_points(self.centroids, X)
-        )
-        y_pred = jnp.argmin(distances_between_centroids_and_points.T, axis=1)
-        return y_pred
-
-    def score(self, X: jax.Array):
-        """
-        Calculate the inertia of the clustering.
-
-        Inertia is the sum of squared distances of samples to their closest cluster center.
-
-        Args:
-            X (jax.Array): Input data, where each row is a data point.
-
-        Returns:
-            float: The negative of the inertia value (to align with optimization routines).
-        """
-        distances_between_centroids_and_points = (
-            calculating_distances_between_centroids_and_points(self.centroids, X)
-        )
-        inertia = jnp.sum(distances_between_centroids_and_points**2)
-        return -inertia
