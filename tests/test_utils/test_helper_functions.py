@@ -68,7 +68,7 @@ class TestHelperFunctions(unittest.TestCase):
 
     def test_compute_priors(self):
         priors = compute_priors(self.y)
-        self.assertEqual(priors.shape[0], len(jnp.unique(self.y)))
+        self.assertEqual(priors.shape[0], len(jnp.unique(self.y))) 
 
     def test_compute_likelihoods(self):
         alpha = 1
