@@ -44,11 +44,7 @@ model.plot_losses()
 ```
 
 ### K-Means
-<<<<<<< HEAD
 ```python
-=======
-```py
->>>>>>> 7588063b57236a3e89c8a214c10492f225b5efc2
 from skjax.clustering import KMeans
 
 # Initialize the model
@@ -62,11 +58,7 @@ clusters = kmeans.predict(X_test)
 ```
 
 ### Gaussian Naive Bayes
-<<<<<<< HEAD
 ```python
-=======
-```py
->>>>>>> 7588063b57236a3e89c8a214c10492f225b5efc2
 from skjax.naive_bayes import GaussianNaiveBayes
 
 # Initialize the model
