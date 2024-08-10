@@ -18,7 +18,7 @@ Welcome to **Scikit-JAX**, a machine learning library designed to leverage the p
 
 To install Scikit-JAX, you can use pip. The package is available on PyPI:
 
-```bash
+```python
 pip install scikit-jax
 ```
 
@@ -44,7 +44,7 @@ model.plot_losses()
 ```
 
 ### K-Means
-```
+```python
 from skjax.clustering import KMeans
 
 # Initialize the model
@@ -58,7 +58,7 @@ clusters = kmeans.predict(X_test)
 ```
 
 ### Gaussian Naive Bayes
-```
+```python
 from skjax.naive_bayes import GaussianNaiveBayes
 
 # Initialize the model
