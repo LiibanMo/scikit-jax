@@ -52,9 +52,6 @@ kmeans = KMeans(num_clusters=3)
 
 # Fit the model
 kmeans.fit(X_train)
-
-# Predict clusters
-clusters = kmeans.predict(X_test)
 ```
 
 ### Gaussian Naive Bayes
