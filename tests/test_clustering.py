@@ -1,4 +1,5 @@
 import unittest
+import time
 
 import jax
 import jax.numpy as jnp
@@ -30,14 +31,26 @@ class TestKMeans(unittest.TestCase):
         self.assertEqual(self.model.seed, 42)
         self.assertIsNone(self.model.centroids)
 
-    def test_fit(self):
+    def test_01_fit_time(self):
+        model = KMeans(num_clusters=3)
+        start_time = time.time()
+        model.fit(self.X)
+        end_time = time.time()
+        
+        time_taken = end_time - start_time
+        print(f"Time taken to fit the model: {time_taken:.4f} seconds")
+        # Assert that time taken is within a reasonable limit, e.g., 1 second
+        self.assertLess(time_taken, 1.0, "Model fitting took too long")
+
+    def test_02_fit(self):
         """Test the fit method of KMeans."""
         self.model.fit(self.X)
         self.assertIsNotNone(self.model.centroids)
         self.assertEqual(self.model.centroids.shape[0], self.model.num_clusters)
         self.assertEqual(self.model.centroids.shape[1], self.X.shape[1])
 
-    def test_fit_early_stopping(self):
+
+    def test_03_fit_early_stopping(self):
         """Test early stopping based on patience."""
         model = KMeans(
             num_clusters=2,
@@ -49,7 +62,7 @@ class TestKMeans(unittest.TestCase):
         model.fit(self.X)
         self.assertTrue(model.centroids is not None)
 
-    def test_no_early_stopping(self):
+    def test_04_no_early_stopping(self):
         """Test no early stopping with patience larger than required."""
         model = KMeans(
             num_clusters=2,
