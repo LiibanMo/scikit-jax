@@ -27,7 +27,7 @@ pip install scikit-jax
 Here is a quick guide on how to use the key components of Scikit-JAX.
 
 ### Linear Regression
-```
+```py
 from skjax.linear_model import LinearRegression
 
 # Initialize the model
@@ -44,7 +44,11 @@ model.plot_losses()
 ```
 
 ### K-Means
+<<<<<<< HEAD
 ```python
+=======
+```py
+>>>>>>> 7588063b57236a3e89c8a214c10492f225b5efc2
 from skjax.clustering import KMeans
 
 # Initialize the model
@@ -58,7 +62,11 @@ clusters = kmeans.predict(X_test)
 ```
 
 ### Gaussian Naive Bayes
+<<<<<<< HEAD
 ```python
+=======
+```py
+>>>>>>> 7588063b57236a3e89c8a214c10492f225b5efc2
 from skjax.naive_bayes import GaussianNaiveBayes
 
 # Initialize the model
