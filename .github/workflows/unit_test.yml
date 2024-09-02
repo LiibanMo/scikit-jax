@@ -16,10 +16,10 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        python setup.py bdist_wheel sdist
         pip install -r requirements.txt
+        pip install -r requirements_dev.txt
+        python setup.py bdist_wheel sdist
         pip install .
-        pip install pytest
     - name: Run tests
       run: |
         pytest
