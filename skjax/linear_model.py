@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from skjax._utils.helpers._helper_functions import (calculate_loss_gradients,
-                                               compute_mse)
+                                                    compute_mse)
 
 # ================================================================================================================ #
 

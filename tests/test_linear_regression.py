@@ -1,8 +1,9 @@
-import pytest
 import jax.numpy as jnp
 import numpy as np
+import pytest
 
 from skjax.linear_model import LinearRegression
+
 
 @pytest.fixture
 def setup_data():
@@ -23,6 +24,7 @@ def setup_data():
         random_state=42,
     )
     return X_train, y_train, X_val, y_val, model
+
 
 def test_initialization(setup_data):
     """Test initialization of LinearRegression instance."""
@@ -52,6 +54,7 @@ def test_initialization(setup_data):
     assert model.lambda_ >= 0
     assert model.stopped_at >= 1
 
+
 def test_fit(setup_data):
     """Test the fit method."""
     X_train, y_train, _, _, model = setup_data
@@ -63,6 +66,7 @@ def test_fit(setup_data):
     assert len(model.losses_in_validation_data) == model.epochs
     assert model.stopped_at >= model.epochs
 
+
 def test_predict(setup_data):
     """Test the predict method."""
     X_train, y_train, X_val, y_val, model = setup_data
@@ -72,6 +76,7 @@ def test_predict(setup_data):
 
     assert predictions.shape == y_val.shape
     assert jnp.all(jnp.isfinite(predictions))
+
 
 def test_losses_plot(setup_data):
     """Test if plotting method runs without error."""

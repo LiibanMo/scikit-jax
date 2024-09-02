@@ -7,10 +7,10 @@ import jax.numpy as jnp
 from jax import tree
 
 from skjax._utils.helpers._helper_functions import (compute_likelihoods,
-                                               compute_means,
-                                               compute_posteriors,
-                                               compute_priors, compute_stds,
-                                               gaussian_pdf)
+                                                    compute_means,
+                                                    compute_posteriors,
+                                                    compute_priors,
+                                                    compute_stds, gaussian_pdf)
 
 # ------------------------------------------------------------------------------------------ #
 

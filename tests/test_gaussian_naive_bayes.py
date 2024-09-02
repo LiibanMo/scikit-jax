@@ -1,6 +1,5 @@
-import pytest
-
 import jax.numpy as jnp
+import pytest
 
 from skjax.naive_bayes import GaussianNaiveBayes
 
@@ -12,6 +11,7 @@ def setup():
     y = jnp.array([0, 0, 0, 1, 1])
     return X, y, model
 
+
 def test_initialization(setup):
     """Test initialization of GaussianNaiveBayes instance."""
     _, _, model = setup
@@ -19,6 +19,7 @@ def test_initialization(setup):
     assert model.priors is None
     assert model.means is None
     assert model.stds is None
+
 
 def test_fit(setup):
     """Test the fit method of GaussianNaiveBayes."""
@@ -33,6 +34,7 @@ def test_fit(setup):
     assert len(model.means) > 0
     assert len(model.stds) > 0
 
+
 def test_predict(setup):
     """Test the predict method of GaussianNaiveBayes."""
     X, y, model = setup
@@ -41,4 +43,3 @@ def test_predict(setup):
     assert predictions.shape == y.shape
     assert jnp.all(predictions >= 0)
     assert jnp.all(predictions < len(jnp.unique(y)))
-

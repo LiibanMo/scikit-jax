@@ -18,8 +18,8 @@ setup(
         "seaborn",
     ],
     extras_require={
-        'dev': ['pytest>=6.0'],
-        'test': ['pytest>=6.0'],
+        "dev": ["pytest>=6.0"],
+        "test": ["pytest>=6.0"],
     },
     classifiers=[
         "Development Status :: 3 - Alpha",

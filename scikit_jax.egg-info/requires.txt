@@ -1,0 +1,11 @@
+jax
+pandas
+numpy
+matplotlib
+seaborn
+
+[dev]
+pytest>=6.0
+
+[test]
+pytest>=6.0

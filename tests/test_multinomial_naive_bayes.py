@@ -1,6 +1,5 @@
-import pytest
-
 import jax.numpy as jnp
+import pytest
 
 from skjax.naive_bayes import MultinomialNaiveBayes
 
@@ -15,6 +14,7 @@ def setup():
 
     return X, y, model
 
+
 def test_initialization(setup):
     """Test initialization of MultinomialNaiveBayes instance."""
     _, _, model = setup
@@ -22,6 +22,7 @@ def test_initialization(setup):
     assert model.alpha == 1.0
     assert model.priors is None
     assert model.likelihoods is None
+
 
 def test_fit(setup):
     """Test the fit method of MultinomialNaiveBayes."""
@@ -34,6 +35,7 @@ def test_fit(setup):
     for class_label in model.likelihoods.keys():
         assert len(model.likelihoods[class_label]) == X.shape[1]
 
+
 def test_predict(setup):
     """Test the predict method of MultinomialNaiveBayes."""
     X, y, model = setup
@@ -45,14 +47,16 @@ def test_predict(setup):
     assert jnp.all(predictions >= 0)
     assert jnp.all(predictions < len(jnp.unique(y)))
 
+
 def test_smoothing(setup):
     """Test the effect of smoothing parameter on fit."""
     X, y, model = setup
 
     model = MultinomialNaiveBayes(alpha=0.5)
     model.fit(X, y)
-    
+
     assert model.likelihoods is not None
+
 
 def test_no_smoothing(setup):
     """Test fitting without smoothing."""
@@ -61,5 +65,3 @@ def test_no_smoothing(setup):
     model = MultinomialNaiveBayes(alpha=0)
     model.fit(X, y)
     assert model.likelihoods is not None
-
-

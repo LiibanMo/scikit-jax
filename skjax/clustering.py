@@ -3,9 +3,9 @@ from typing import Optional
 import jax
 import jax.numpy as jnp
 
-from skjax._utils.helpers._clustering import (
-    initialize_centroids, assign_clusters_to_data, calculate_new_centroids
-    )
+from skjax._utils.helpers._clustering import (assign_clusters_to_data,
+                                              calculate_new_centroids,
+                                              initialize_centroids)
 
 # ------------------------------------------------------------------------------------------ #
 
@@ -41,9 +41,7 @@ class KMeans:
         Returns:
             self: The instance of the KMeans object with fitted centroids.
         """
-        self.init_centroids = initialize_centroids(
-            X, num_clusters=self.num_clusters
-        )
+        self.init_centroids = initialize_centroids(X, num_clusters=self.num_clusters)
 
         centroids_for_each_data_point = assign_clusters_to_data(X, self.init_centroids)
         print(centroids_for_each_data_point)
