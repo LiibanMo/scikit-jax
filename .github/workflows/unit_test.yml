@@ -15,7 +15,9 @@ jobs:
         python-version: 3.11
     - name: Install dependencies
       run: |
+        pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pytest
     - name: Run tests
       run: |
-        python -m unittest discover -s tests
+        pytest

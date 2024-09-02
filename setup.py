@@ -17,6 +17,10 @@ setup(
         "matplotlib",
         "seaborn",
     ],
+    extras_require={
+        'dev': ['pytest>=6.0'],
+        'test': ['pytest>=6.0'],
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
