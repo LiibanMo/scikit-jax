@@ -3,7 +3,7 @@ from typing import Optional
 import jax
 import jax.numpy as jnp
 
-from _utils.helpers._clustering import (
+from skjax._utils.helpers._clustering import (
     initialize_centroids, assign_clusters_to_data, calculate_new_centroids
     )
 
