@@ -6,7 +6,7 @@ import jax
 import jax.numpy as jnp
 from jax import tree
 
-from _utils.helpers._helper_functions import (compute_likelihoods,
+from skjax._utils.helpers._helper_functions import (compute_likelihoods,
                                                compute_means,
                                                compute_posteriors,
                                                compute_priors, compute_stds,

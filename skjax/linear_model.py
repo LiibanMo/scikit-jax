@@ -7,7 +7,7 @@ import jax.numpy as jnp
 import matplotlib.pyplot as plt
 import numpy as np
 
-from _utils.helpers._helper_functions import (calculate_loss_gradients,
+from skjax._utils.helpers._helper_functions import (calculate_loss_gradients,
                                                compute_mse)
 
 # ================================================================================================================ #

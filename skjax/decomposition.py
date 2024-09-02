@@ -49,7 +49,7 @@ class PCA:
     def fit_transform(self, X: jax.Array):
         if self.mean is None:
             self.mean = X.mean(axis=0)
-            
+
         X_centred = X - self.mean
 
         self.principal_components = svd(X_centred, full_matrices=True)[2]
