@@ -4,11 +4,13 @@ from typing import Optional
 
 import jax
 import jax.numpy as jnp
+from jax import tree
 
-from ._utils._helper_functions import (compute_likelihoods, compute_means,
-                                       compute_posteriors, compute_priors,
-                                       compute_stds, gaussian_pdf)
-from ._utils.config import ALPHA_mnb
+from _utils.helpers._helper_functions import (compute_likelihoods,
+                                               compute_means,
+                                               compute_posteriors,
+                                               compute_priors, compute_stds,
+                                               gaussian_pdf)
 
 # ------------------------------------------------------------------------------------------ #
 
@@ -33,7 +35,7 @@ class MultinomialNaiveBayes:
 
     """
 
-    def __init__(self, alpha: int = ALPHA_mnb):
+    def __init__(self, alpha: int = 0):
         """
         Initializes the MultinomialNaiveBayes classifier.
 

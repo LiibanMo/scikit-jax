@@ -7,9 +7,8 @@ import jax.numpy as jnp
 import matplotlib.pyplot as plt
 import numpy as np
 
-from ._utils._helper_functions import calculate_loss_gradients, compute_mse
-from ._utils.config import (DROPOUT, LAMBDA_, LEARNING_RATE, EPOCHS_lr,
-                            MAX_PATIENCE_lr, P, RANDOM_STATE_lr)
+from _utils.helpers._helper_functions import (calculate_loss_gradients,
+                                               compute_mse)
 
 # ================================================================================================================ #
 
@@ -35,13 +34,13 @@ class LinearRegression:
     def __init__(
         self,
         weights_init: str = "zero",
-        epochs: int = EPOCHS_lr,
-        learning_rate: float = LEARNING_RATE,
-        p: int = P,
-        lambda_: float = LAMBDA_,
-        max_patience: int = MAX_PATIENCE_lr,
-        dropout: float = DROPOUT,
-        random_state: int = RANDOM_STATE_lr,
+        epochs: int = 2000,
+        learning_rate: float = 5e-3,
+        p: int = 2,
+        lambda_: float = 0.0,
+        max_patience: int = 200,
+        dropout: float = 0.0,
+        random_state: int = 41,
     ):
         """
         Initialize the LinearRegressionModel.
