@@ -1,9 +1,9 @@
 .pytest_cache/
 .venv/
-.vscode/
 assets/
 build/
 dist/
 docs/
 site/
 exec.zsh
+.vscode/
