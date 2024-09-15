@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: scikit-jax
-Version: 0.0.2
+Version: 0.0.3.dev0
 Summary: Classical machine learning algorithms on the GPU/TPU.
 Home-page: https://github.com/LiibanMo/scikit-jax
 Author: Liiban Mohamud

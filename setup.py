@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="scikit-jax",
-    version="0.0.2",
+    version="0.0.3dev1",
     author="Liiban Mohamud",
     author_email="liibanmohamud12@gmail.com",
     description="Classical machine learning algorithms on the GPU/TPU.",
