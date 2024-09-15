@@ -14,6 +14,30 @@ from skjax._utils.helpers._helper_functions import (calculate_loss_gradients,
 
 
 class LinearRegression:
+    def fit(self, X: jax.Array, y: jax.Array):
+        self.design_matrix = jnp.vstack((jnp.ones(X.shape[0]), X)).T
+        self.hat_matrix = X @ jnp.linalg.inv(X.T @ X) @ X.T
+
+        max_rank_of_design_matrix = jnp.min(X.shape)
+        rank_of_hat_matrix = jnp.trace(
+            self.hat_matrix
+        )  # Rank of hat_matrix = Trace of hat_matrix
+
+        assert jnp.isclose(
+            rank_of_hat_matrix == max_rank_of_design_matrix
+        ), f"Rank of the design matrix is not full. Should have {max_rank_of_design_matrix}. Instead got {rank_of_hat_matrix}."
+
+        lhs = jnp.dot(self.design_matrix.T, self.design_matrix)  # Gram Matrix
+        rhs = jnp.dot(self.design_matrix.T, y)
+        self.coeff = jnp.linalg.solve(lhs, rhs)  # Solving Normal Equation
+        return self
+
+    def predict(self, X: jax.Array):
+        return jnp.dot(self.design_matrix, self.coeff)
+
+
+# ================================================================================================================ #
+class LinearRegressionSGD:
     """
     Linear Regression model with options for various weight initialization methods and dropout regularization.
 

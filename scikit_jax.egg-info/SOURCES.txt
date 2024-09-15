@@ -22,4 +22,5 @@ tests/test_PCA.py
 tests/test_gaussian_naive_bayes.py
 tests/test_k_means.py
 tests/test_linear_regression.py
+tests/test_linear_regression_sgd.py
 tests/test_multinomial_naive_bayes.py
