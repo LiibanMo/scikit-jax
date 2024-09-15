@@ -18,8 +18,8 @@ Welcome to **Scikit-JAX**, a machine learning library designed to leverage the p
 
 To install Scikit-JAX, you can use pip. The package is available on PyPI:
 
-```python
-pip install scikit-jax
+```terminal
+pip install scikit-jax==0.0.3dev1
 ```
 
 ## Usage
