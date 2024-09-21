@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/scikit-jax-logo-1-blue_blackground.jpg" alt="Alt text" width="300"/>
+  <img src="assets/scikit-jax-logo-1-transparent.jpg" alt="Alt text" width="300"/>
 </p>
 
 # Scikit-JAX: Classical Machine Learning on the GPU
