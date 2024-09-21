@@ -6,4 +6,5 @@ dist/
 docs/
 site/
 exec.zsh
-.vscode/
+examples/data/clustering_data/
+scikit_jax.egg-info/
