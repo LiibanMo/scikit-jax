@@ -1,10 +1,8 @@
 .pytest_cache/
 .venv/
-assets/
 build/
 dist/
 docs/
 site/
 exec.zsh
-examples/data/clustering_data/
 scikit_jax.egg-info/
