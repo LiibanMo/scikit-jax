@@ -4,7 +4,7 @@
 
 # Scikit-JAX: Classical Machine Learning on the GPU
 
-Welcome to **Scikit-JAX**, a machine learning library designed to leverage the power of GPUs through JAX for efficient and scalable classical machine learning algorithms. Our library provides implementations for a variety of classical machine learning techniques, optimized for performance and ease of use.
+Welcome to **Scikit-JAX**, a machine learning library designed to leverage the power of GPUs through JAX for efficient and scalable classical machine learning algorithms. The library provides implementations for a variety of classical machine learning techniques, optimized for performance and ease of use.
 
 ## Features
 
