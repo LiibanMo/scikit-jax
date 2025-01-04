@@ -217,3 +217,10 @@ class LinearRegressionSGD:
         )
         plt.legend()
         plt.show()
+
+# ================================================================================================================ #
+
+
+class LogisticRegression:
+    def fit():
+        pass
