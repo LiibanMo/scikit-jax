@@ -1,8 +1,0 @@
-.pytest_cache/
-.venv/
-build/
-dist/
-docs/
-site/
-exec.zsh
-scikit_jax.egg-info/
