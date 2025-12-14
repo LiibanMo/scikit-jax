@@ -29,7 +29,7 @@ setup(
         "Topic :: Software Development :: Build Tools",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: >=3.11.8",
     ],
     keywords="jax classical machine learning",
     python_requires=">=3.9",

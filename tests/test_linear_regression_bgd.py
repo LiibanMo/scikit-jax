@@ -2,7 +2,7 @@ import jax.numpy as jnp
 import numpy as np
 import pytest
 
-from skjax.linear_model import LinearRegressionSGD
+from skjax.linear_model import LinearRegressionBGD
 
 
 @pytest.fixture
@@ -13,11 +13,10 @@ def setup_data():
     X_val = jnp.array([[7.0, 8.0], [9.0, 10.0]])
     y_val = jnp.array([4.0, 5.0])
 
-    model = LinearRegressionSGD(
+    model = LinearRegressionBGD(
         weights_init="random",
         epochs=10,
         learning_rate=0.01,
-        p=2,
         lambda_=0.1,
         max_patience=2,
         dropout=0.1,
@@ -30,19 +29,17 @@ def test_initialization(setup_data):
     """Test initialization of LinearRegression instance."""
     _, _, _, _, model = setup_data
 
-    assert model.weights == "random"
+    assert model.weights_init_method == "random"
     assert model.epochs == 10
     assert model.learning_rate == 0.01
-    assert model.p == 2
     assert model.lambda_ == 0.1
     assert model.max_patience == 2
     assert model.dropout == 0.1
     assert model.random_state == 42
 
-    assert isinstance(model.weights, str)
+    assert model.weights is None
     assert isinstance(model.epochs, int)
     assert isinstance(model.learning_rate, float)
-    assert isinstance(model.p, int)
     assert isinstance(model.dropout, float)
     assert isinstance(model.random_state, int)
     assert isinstance(model.losses_in_training_data, np.ndarray)
@@ -61,10 +58,10 @@ def test_fit(setup_data):
 
     model = model.fit(X_train, y_train)
 
-    assert isinstance(model, LinearRegressionSGD)
+    assert isinstance(model, LinearRegressionBGD)
     assert len(model.losses_in_training_data) == model.epochs
     assert len(model.losses_in_validation_data) == model.epochs
-    assert model.stopped_at >= model.epochs
+    assert model.stopped_at <= model.epochs
 
 
 def test_predict(setup_data):

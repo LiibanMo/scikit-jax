@@ -2,3 +2,5 @@ jax == 0.4.31
 pandas == 2.2.2
 numpy == 2.0.1
 matplotlib == 3.9.0
+wheel == 0.44.0
+pytest == 8.3.2
